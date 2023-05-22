@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TestCompanies;
 use App\Models\User;
+use App\Models\Events;
 use Illuminate\Http\Request;
 
 class TestCompaniesController extends Controller
@@ -29,4 +30,16 @@ class TestCompaniesController extends Controller
 
     return view('viewcompanies', compact('companies'));
 }
+
+    public function viewEvents()
+    {
+        // $events = Events::all();
+
+        // return response()->json($events);
+
+        $events = DB::table('events')->get();
+
+        return view('events', compact('events'));
+    }
+
 }

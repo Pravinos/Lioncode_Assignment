@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestCompaniesController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,9 @@ use App\Http\Controllers\TestCompaniesController;
 // });
 
 Route::middleware('auth:sanctum')->get('/getcompanies', [TestCompaniesController::class, 'getCompanies']);
+
+Route::middleware('auth:sanctum')->get('/users/{user_id}/eventsA', [UserController::class, 'getEventsA']);
+
+Route::middleware('auth:sanctum')->get('/users/{user_id}/eventsB', [UserController::class, 'getEventsB']);
+
+

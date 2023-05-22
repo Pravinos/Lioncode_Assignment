@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestCompaniesController;
-// use App\Http\Controllers\MyAccountController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +27,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/myaccount', [UserController::class, 'myAccount'])->name('myaccount')->middleware('auth');
 
-Route::middleware('auth:sanctum')->get('/getcompanies', [TestCompaniesController::class, 'getCompanies']);
+// Route::middleware('auth:sanctum')->get('/getcompanies', [TestCompaniesController::class, 'getCompanies']);
 
 Route::middleware('auth:sanctum')->get('/viewcompanies', [TestCompaniesController::class, 'viewCompanies'])->name('viewcompanies');
 
-// Route::middleware('auth')->get('/myaccount', [MyAccountController::class, 'myAccount'])->name('myaccount');
+Route::middleware('auth:sanctum')->get('/events', [TestCompaniesController::class, 'getEvents'])->name('getEvents');
